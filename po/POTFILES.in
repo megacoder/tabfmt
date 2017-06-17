@@ -1,0 +1,5 @@
+# List of source files which contain translatable strings.
+lib/getopt.c
+lib/xalloc-die.c
+lib/error.c
+src/tabfmt.c

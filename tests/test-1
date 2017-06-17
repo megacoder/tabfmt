@@ -1,0 +1,35 @@
+#! /bin/sh
+
+trap 'rm -fr $tmpfiles' 1 2 3 15
+
+LANGUAGE=
+LC_ALL=
+LC_MESSAGES=
+LANG=
+export LANGUAGE LC_ALL LC_MESSAGES LANG
+
+tmpfiles="test1.in"
+cat <<EOF > test1.in
+This is a simple test
+with space-separated columns.
+EOF
+
+tmpfiles="$tmpfiles test1.ok"
+cat <<EOF > test1.ok
+This	is             	a       	simple	test
+with	space-separated	columns.
+EOF
+
+tmpfiles="$tmpfiles test1.out"
+: ${TABFMT=tabfmt}
+${TABFMT} < test1.in > test1.out
+
+: ${DIFF=diff}
+${DIFF} test1.ok test1.out
+result=$?
+
+rm -f $tmpfiles
+
+exit $result
+
+# test-1 ends here

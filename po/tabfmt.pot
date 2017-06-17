@@ -1,0 +1,173 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Claudio Jolowicz
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: tabfmt-devel@lists.sourceforge.net\n"
+"POT-Creation-Date: 2006-01-08 14:18+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: lib/getopt.c:551 lib/getopt.c:570
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr ""
+
+#: lib/getopt.c:603 lib/getopt.c:607
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr ""
+
+#: lib/getopt.c:616 lib/getopt.c:621
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr ""
+
+#: lib/getopt.c:667 lib/getopt.c:689 lib/getopt.c:1020 lib/getopt.c:1042
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr ""
+
+#: lib/getopt.c:727 lib/getopt.c:730
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr ""
+
+#: lib/getopt.c:738 lib/getopt.c:741
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr ""
+
+#: lib/getopt.c:796 lib/getopt.c:799
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr ""
+
+#: lib/getopt.c:805 lib/getopt.c:808
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr ""
+
+#: lib/getopt.c:863 lib/getopt.c:882 lib/getopt.c:1095 lib/getopt.c:1116
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr ""
+
+#: lib/getopt.c:935 lib/getopt.c:954
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr ""
+
+#: lib/getopt.c:978 lib/getopt.c:999
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr ""
+
+#: lib/xalloc-die.c:38
+msgid "memory exhausted"
+msgstr ""
+
+#: lib/error.c:121
+msgid "Unknown system error"
+msgstr ""
+
+#: src/tabfmt.c:118 src/tabfmt.c:130
+msgid "out of memory"
+msgstr ""
+
+#: src/tabfmt.c:604 src/tabfmt.c:704
+#, c-format
+msgid "closing %s"
+msgstr ""
+
+#: src/tabfmt.c:637 src/tabfmt.c:644
+msgid "write error"
+msgstr ""
+
+#: src/tabfmt.c:692
+msgid "read error"
+msgstr ""
+
+#: src/tabfmt.c:749
+#, c-format
+msgid "invalid alignment: value #%d, char %d in `%s'"
+msgstr ""
+
+#: src/tabfmt.c:796 src/tabfmt.c:805 src/tabfmt.c:841 src/tabfmt.c:860
+#: src/tabfmt.c:873
+#, c-format
+msgid "invalid width: value #%d, char %d in `%s'"
+msgstr ""
+
+#: src/tabfmt.c:902
+#, c-format
+msgid ""
+"%s (%s) %s - format tabular data\n"
+"Written by Claudio Jolowicz <claudio@jolowicz.com>.\n"
+"\n"
+"Copyright (c) 2005 Claudio Jolowicz.\n"
+"This is free software; see the source for copying conditions.  There is NO\n"
+"warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
+msgstr ""
+
+#: src/tabfmt.c:910
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... [FILE]...\n"
+"Format tabular data producing constant-width columns.\n"
+"If no FILE or if FILE is `-', read standard input.\n"
+"\n"
+"Mandatory arguments to long options are mandatory for short options too.\n"
+"  -w, --widths=WLIST            use WLIST as field widths\n"
+"  -e, --equal-width             use equal width for all fields\n"
+"  -f, --filler=CHAR             use CHAR to fill fields [SPC]\n"
+"  -a, --align=ALIST             align fields according to LIST\n"
+"  -p, --padding=LIST            use LIST as padding [none]\n"
+"  -l, --left-padding=PLIST      use PLIST as left padding\n"
+"  -r, --right-padding=PLIST     use PLIST as right padding\n"
+"  -P, --padder=CHAR             use CHAR as padding character [SPC]\n"
+"  -d, --delimiter=DELIM         set of field delimiters [TAB,SPC]\n"
+"  -D, --output-delimiter=DELIM  output field delimiter [TAB]\n"
+"  -o, --output=FILE             write output to FILE [stdout]\n"
+"      --debug                   print debugging information\n"
+"  -h, --help                    display this help and exit\n"
+"  -V, --version                 output version information and exit\n"
+"\n"
+"WLIST is a comma-separated list of nonnegative numbers or ranges. More\n"
+"precisely, an item can be one of `NUM', `NUM-', `-NUM', and `NUM-NUM',\n"
+"where NUM is a nonnegative number, or it can be empty.  ALIST is a\n"
+"comma-separated list of alignments, which may be one of `l' (left),\n"
+"`r' (right) and `c' (center).  PLIST is a comma-separated list of\n"
+"nonnegative numbers.  If the number of fields exceeds the number of\n"
+"list elements, the last element counts for all remaining fields.\n"
+"\n"
+"The following escape sequences are recognized for the -dfPD options:\n"
+"\n"
+"  \\NNN   the character whose ASCII code is NNN (octal)\n"
+"  \\\\     backslash\n"
+"  \\a     alert (BEL)\n"
+"  \\b     backspace\n"
+"  \\f     form feed\n"
+"  \\n     new line\n"
+"  \\r     carriage return\n"
+"  \\t     horizontal tab\n"
+"  \\v     vertical tab\n"
+"\n"
+"If the IFS environment variable is set, its value will be used as the\n"
+"set of input field separators, unless overridden with the -d option.\n"
+"\n"
+"Report bugs to %s.\n"
+msgstr ""
+
+#: src/tabfmt.c:1055
+#, c-format
+msgid "Try `%s --help' for more information.\n"
+msgstr ""

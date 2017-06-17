@@ -1,0 +1,235 @@
+# German translations for tabfmt package.
+# Copyright (C) 2005 Claudio Jolowicz
+# This file is distributed under the same license as the tabfmt package.
+# Claudio Jolowicz <claudio@jolowicz.com>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: tabfmt 0.1\n"
+"Report-Msgid-Bugs-To: tabfmt-devel@lists.sourceforge.net\n"
+"POT-Creation-Date: 2006-01-08 14:18+0100\n"
+"PO-Revision-Date: 2006-01-08 00:28+0100\n"
+"Last-Translator: Claudio Jolowicz <claudio@jolowicz.com>\n"
+"Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: lib/getopt.c:551 lib/getopt.c:570
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr "%s: Option `%s' ist mehrdeutig\n"
+
+#: lib/getopt.c:603 lib/getopt.c:607
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr "%s: Option `--%s' nimmt kein Argument an\n"
+
+#: lib/getopt.c:616 lib/getopt.c:621
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr "%s: Option `%c%s' nimmt kein Argument an\n"
+
+#: lib/getopt.c:667 lib/getopt.c:689 lib/getopt.c:1020 lib/getopt.c:1042
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr "%s: option `%s' benötigt ein Argument\n"
+
+#: lib/getopt.c:727 lib/getopt.c:730
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr "%s: unbekannte Option `--%s'\n"
+
+#: lib/getopt.c:738 lib/getopt.c:741
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr "%s: unbekannte Option `%c%s'\n"
+
+#: lib/getopt.c:796 lib/getopt.c:799
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr "%s: unzulässige Option -- %c\n"
+
+#: lib/getopt.c:805 lib/getopt.c:808
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr "%s: ungültige Option -- %c\n"
+
+#: lib/getopt.c:863 lib/getopt.c:882 lib/getopt.c:1095 lib/getopt.c:1116
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr "%s: Option benötigt ein Argument -- %c\n"
+
+#: lib/getopt.c:935 lib/getopt.c:954
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr "%s: Option `-W %s' ist mehrdeutig\n"
+
+#: lib/getopt.c:978 lib/getopt.c:999
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr "%s: Option `-W %s' nimmt kein Argument an\n"
+
+#: lib/xalloc-die.c:38
+msgid "memory exhausted"
+msgstr "Speicher erschöpft"
+
+#: lib/error.c:121
+msgid "Unknown system error"
+msgstr "Unbekannter Systemfehler"
+
+#: src/tabfmt.c:118 src/tabfmt.c:130
+msgid "out of memory"
+msgstr "Speicherplatz ausgeschöpft"
+
+#: src/tabfmt.c:604 src/tabfmt.c:704
+#, c-format
+msgid "closing %s"
+msgstr "%s schließen"
+
+#: src/tabfmt.c:637 src/tabfmt.c:644
+msgid "write error"
+msgstr "Schreibfehler"
+
+#: src/tabfmt.c:692
+msgid "read error"
+msgstr "Lesefehler"
+
+#: src/tabfmt.c:749
+#, c-format
+msgid "invalid alignment: value #%d, char %d in `%s'"
+msgstr "ungültige Ausrichtung: Wert #%d, Zeichen %d in `%s'"
+
+#: src/tabfmt.c:796 src/tabfmt.c:805 src/tabfmt.c:841 src/tabfmt.c:860
+#: src/tabfmt.c:873
+#, c-format
+msgid "invalid width: value #%d, char %d in `%s'"
+msgstr "ungültige Breite: Wert #%d, Zeichen %d in `%s'"
+
+#: src/tabfmt.c:902
+#, c-format
+msgid ""
+"%s (%s) %s - format tabular data\n"
+"Written by Claudio Jolowicz <claudio@jolowicz.com>.\n"
+"\n"
+"Copyright (c) 2005 Claudio Jolowicz.\n"
+"This is free software; see the source for copying conditions.  There is NO\n"
+"warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
+msgstr ""
+"%s (%s) %s - Tabellendaten formatieren\n"
+"Geschrieben von Claudio Jolowicz <claudio@jolowicz.com>.\n"
+"\n"
+"Copyright (c) 2005 Claudio Jolowicz.\n"
+"Dies ist freie Software; die Kopierbedingungen stehen in den Quelltexten. "
+"Es\n"
+"gibt keine Garantie; auch nicht für VERKAUFBARKEIT oder FÜR SPEZIELLE "
+"ZWECKE.\n"
+
+#: src/tabfmt.c:910
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... [FILE]...\n"
+"Format tabular data producing constant-width columns.\n"
+"If no FILE or if FILE is `-', read standard input.\n"
+"\n"
+"Mandatory arguments to long options are mandatory for short options too.\n"
+"  -w, --widths=WLIST            use WLIST as field widths\n"
+"  -e, --equal-width             use equal width for all fields\n"
+"  -f, --filler=CHAR             use CHAR to fill fields [SPC]\n"
+"  -a, --align=ALIST             align fields according to LIST\n"
+"  -p, --padding=LIST            use LIST as padding [none]\n"
+"  -l, --left-padding=PLIST      use PLIST as left padding\n"
+"  -r, --right-padding=PLIST     use PLIST as right padding\n"
+"  -P, --padder=CHAR             use CHAR as padding character [SPC]\n"
+"  -d, --delimiter=DELIM         set of field delimiters [TAB,SPC]\n"
+"  -D, --output-delimiter=DELIM  output field delimiter [TAB]\n"
+"  -o, --output=FILE             write output to FILE [stdout]\n"
+"      --debug                   print debugging information\n"
+"  -h, --help                    display this help and exit\n"
+"  -V, --version                 output version information and exit\n"
+"\n"
+"WLIST is a comma-separated list of nonnegative numbers or ranges. More\n"
+"precisely, an item can be one of `NUM', `NUM-', `-NUM', and `NUM-NUM',\n"
+"where NUM is a nonnegative number, or it can be empty.  ALIST is a\n"
+"comma-separated list of alignments, which may be one of `l' (left),\n"
+"`r' (right) and `c' (center).  PLIST is a comma-separated list of\n"
+"nonnegative numbers.  If the number of fields exceeds the number of\n"
+"list elements, the last element counts for all remaining fields.\n"
+"\n"
+"The following escape sequences are recognized for the -dfPD options:\n"
+"\n"
+"  \\NNN   the character whose ASCII code is NNN (octal)\n"
+"  \\\\     backslash\n"
+"  \\a     alert (BEL)\n"
+"  \\b     backspace\n"
+"  \\f     form feed\n"
+"  \\n     new line\n"
+"  \\r     carriage return\n"
+"  \\t     horizontal tab\n"
+"  \\v     vertical tab\n"
+"\n"
+"If the IFS environment variable is set, its value will be used as the\n"
+"set of input field separators, unless overridden with the -d option.\n"
+"\n"
+"Report bugs to %s.\n"
+msgstr ""
+"Aufruf: %s [OPTION]... [DATEI]...\n"
+"Eine Tabelle in Spalten konstanter Breite formatieren.\n"
+"Ohne DATEI oder wenn DATEI `-' ist, von der Standardeingabe lesen.\n"
+"\n"
+"Erforderliche Argumente für lange Optionen sind auch für kurze "
+"erforderlich.\n"
+"  -w, --widths=LISTE            LISTE als Spaltenbreiten benutzen\n"
+"  -e, --equal-width             gleiche Breite für alle Spalten benutzen\n"
+"  -f, --filler=ZEICHEN          ZEICHEN als Füllzeichen für Zellen benutzen "
+"[SPC]\n"
+"  -a, --align=LISTE             Felder gemäß LISTE bündig anordnen\n"
+"  -p, --padding=LISTE           LISTE als Zellenrandbreiten benutzen [none]\n"
+"  -l, --left-padding=LISTE      LISTE als linke Zellenrandbreite benutzen\n"
+"  -r, --right-padding=LISTE     LISTE als rechte Zellenrandbreite benutzen\n"
+"  -P, --padder=ZEICHEN          ZEICHEN als Zellenrandzeichen benutzen "
+"[SPC]\n"
+"  -d, --delimiter=TRENN         TRENN als die Eingabetrennzeichen benutzen "
+"[TAB,SPC]\n"
+"  -D, --output-delimiter=TRENN  TRENN als das Ausgabetrennzeichen benutzen "
+"[TAB]\n"
+"  -o, --output=DATEI            Ausgabe in DATEI schreiben [stdout]\n"
+"      --debug                   Informationen zum Debuggen anzeigen\n"
+"  -h, --help                    diese Hilfe anzeigen und beenden\n"
+"  -V, --version                 Versionsinformation anzeigen und beenden\n"
+"\n"
+"Bei der -w Option ist LISTE eine Komma-separierte Liste nicht\n"
+"negativer Zahlen oder Bereiche.  Im einzelnen kann ein Listenglied\n"
+"entweder `NUM', `NUM-', `-NUM', oder `NUM-NUM' sein, wobei NUM eine\n"
+"nicht negative Zahl ist, oder es kann leer sein. Bei der -a Option ist\n"
+"LISTE eine Komma-separierte Liste von Ausrichtungen, die entweder `l'\n"
+"(links), `r' (rechts) oder `c' (zentral) sein kann.  Bei der -p Option\n"
+"ist LISTE Komma-separierte Liste nicht negativer\n"
+"Zahlen. Übersteigt die Anzahl der Zellen die Anzahl der\n"
+"Listelemente, so zählt das letzte Element für alle\n"
+"verbleibenden Zellen.\n"
+"\n"
+"Die folgenden Escape-Sequenzen werden für die Optionen -dfPD\n"
+"erkannt:\n"
+"\n"
+"  \\\\NNN   das Zeichen mit dem ASCII-Code NNN (oktal)\n"
+"  \\\\\\\\    Backslash\n"
+"  \\\\a     Glocke (BEL)\n"
+"  \\\\b     Backspace\n"
+"  \\\\f     Seitenvorschub\n"
+"  \\\\n     Zeilenvorschub\n"
+"  \\\\r     Wagenrücklauf\n"
+"  \\\\t     horizontaler Tabulatorstopp\n"
+"  \\\\v     vertikaler Tabulatorstopp\n"
+"\n"
+"Wenn die Umgebungsvariable IFS gesetzt ist, wird ihr Wert für die\n"
+"Eingabetrennzeichen benutzt, es sei denn, diese sind durch die -d\n"
+"Option bestimmt.\n"
+"\n"
+"Melden Sie Fehler an %s.\n"
+
+#: src/tabfmt.c:1055
+#, c-format
+msgid "Try `%s --help' for more information.\n"
+msgstr "`%s --help' gibt weitere Informationen.\n"

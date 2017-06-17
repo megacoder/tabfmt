@@ -1,0 +1,51 @@
+2006-01-09  Claudio Jolowicz <joloc@sourceforge.net>
+
+	* Makefile.am:
+	(.ChangeLog) Use user map .cvsusers instead of GECOS and
+	hostname(1). Remove --day-of-week option.
+
+2006-01-09  Claudio Jolowicz <joloc@sourceforge.net>
+
+	* man/Makefile.am: Use dist_man_MANS. Use a .x.1 suffix rule and
+	help2man include files (method from the autoconf source package).
+
+2006-01-09  Claudio Jolowicz <joloc@sourceforge.net>
+
+	* man/tabfmt.x, .cvsusers: New file.
+
+2006-01-08  Claudio Jolowicz <joloc@sourceforge.net>
+
+	* NEWS, README, configure.ac: Update package bugreport address and
+	project homepage
+
+2006-01-07  Claudio Jolowicz <joloc@sourceforge.net>
+
+	* po/de.po: Update fuzzy translations.
+
+2006-01-07  Claudio Jolowicz <joloc@sourceforge.net>
+
+	* .cvscopying, .cvsignore, AUTHORS, Makefile.am, NEWS, README,
+	THANKS, autogen.sh, configure.ac, doc/.cvsignore, doc/Makefile.am,
+	build-aux/.cvsignore, doc/fdl.texi, doc/tabfmt.texi,
+	lib/.cvsignore, m4/.cvsignore, man/.cvsignore, man/Makefile.am,
+	man/help2man, man/tabfmt.1, po/.cvsignore, po/LINGUAS, po/Makevars,
+	po/POTFILES.in, po/de.po, src/.cvsignore, src/Makefile.am,
+	src/tabfmt.c, tests/.cvsignore, tests/Makefile.am, tests/test-1:
+	Initial import.
+
+2006-01-07  Claudio Jolowicz <joloc@sourceforge.net>
+
+	* .cvscopying, .cvsignore, AUTHORS, Makefile.am, NEWS, README,
+	THANKS, autogen.sh, configure.ac, doc/.cvsignore, doc/Makefile.am,
+	build-aux/.cvsignore, doc/fdl.texi, doc/tabfmt.texi,
+	lib/.cvsignore, m4/.cvsignore, man/.cvsignore, man/Makefile.am,
+	man/help2man, man/tabfmt.1, po/.cvsignore, po/LINGUAS, po/Makevars,
+	po/POTFILES.in, po/de.po, src/.cvsignore, src/Makefile.am,
+	src/tabfmt.c, tests/.cvsignore, tests/Makefile.am, tests/test-1:
+	Initial revision
+
+----------------------------------------------------------------------
+	Copyright (C) 2005, 2006 Claudio Jolowicz
+	Copying and distribution of this file, with or without
+	modification, are permitted in any medium without royalty
+	provided the copyright notice and this notice are preserved.

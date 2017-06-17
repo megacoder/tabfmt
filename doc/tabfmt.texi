@@ -1,0 +1,253 @@
+\input texinfo @c -*-texinfo-*-
+@c $Id: tabfmt.texi,v 1.1.1.1 2009/07/16 02:17:25 reynolds Exp $
+@c %**start of header
+@setfilename tabfmt.info
+@include version.texi
+@settitle Tabfmt @value{VERSION}
+@syncodeindex pg cp
+@c %**end of header
+
+@copying
+This manual is for Tabfmt (version @value{VERSION}, @value{UPDATED}), 
+a software tool for formatting tabular data.
+
+Copyright @copyright{} 2005, 2006 Claudio Jolowicz
+
+@quotation
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover Texts being ``A GNU Manual,''
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled ``GNU Free Documentation
+License.''
+
+(a) The FSF's Back-Cover Text is: ``You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development.''
+@end quotation
+@end copying
+
+@dircategory Format tabular data
+@direntry
+* tabfmt: (tabfmt).	Format tabular data.
+@end direntry
+
+@titlepage
+@title Tabfmt
+@subtitle Formatting tabular data
+@subtitle Edition @value{EDITION}, for Tabfmt Version @value{VERSION}
+@subtitle @value{UPDATED}
+@author Claudio Jolowicz (@email{claudio@@jolowicz.com})
+@page
+@vskip 0pt plus 1filll
+@insertcopying
+@end titlepage
+
+@contents
+
+@ifnottex
+@node Top, Overview, (dir), (dir)
+@top Tabfmt
+
+@insertcopying
+@end ifnottex
+
+@menu
+* Overview::                    
+* Invoking tabfmt::             
+* Examples::                    
+* Reporting Bugs::              
+* Copying This Manual::         
+* Index::                       
+@end menu
+
+@node Overview, Invoking tabfmt, Top, Top
+@chapter Overview
+
+@cindex overview
+@cindex introduction
+
+Tabfmt is a command line utility to format tabular data. The program
+reads lines from one or more files or from standard input, breaks the
+lines into fields given a set of input field delimiters, and prints a
+table with constant-width columns to standard output or a specified
+file. Minimum and maximum field widths, left and right padding, as well
+as the characters used for filling, padding and delimiting the fields
+can be specified.
+
+This program is meant to integrate well with the standard UNIX utilities
+for text manipulation. It is specialised in a simple, everyday task
+which is usually too bothersome to implement in shell scripting. While
+tabfmt currently formats the table using plain text, extensions may
+include output in other formats such as HTML, LaTeX, Texinfo, or XML
+languages.
+
+The program was originally written for a GNU environment, but should
+build and run on a wide variety of platforms thanks to the GNU autotools
+and a portability library which is compiled and linked as needed
+(gnulib). It has been successfully built on GNU/Linux, FreeBSD and
+NetBSD. The program provides support for localisation using the GNU
+gettext package; a German language translation has been provided by the
+author. The package contains a preliminary test suite.
+
+@node Invoking tabfmt, Examples, Overview, Top
+@chapter Invoking tabfmt
+
+@pindex tabfmt
+@cindex invoking @command{tabfmt}
+
+The format for running the @code{tabfmt} program is:
+
+@example
+tabfmt @var{option}@dots{} @var{file}@dots{} 
+@end example
+
+@code{tabfmt} supports the following options:
+
+@table @samp
+@item -w WLIST
+@itemx --widths=WLIST
+Use WLIST as field widths.
+
+@item -e
+@itemx --equal-width
+Use equal width for all fields.
+
+@item -f CHAR
+@itemx --filler=CHAR
+Use CHAR to fill fields [SPC].
+
+@item -a ALIST
+@itemx --align=ALIST
+Align fields according to LIST.
+
+@item -p LIST
+@itemx --padding=LIST
+Use LIST as padding [none].
+
+@item -l PLIST
+@itemx --left-padding=PLIST
+Use PLIST as left padding.
+
+@item -r PLIST
+@itemx --right-padding=PLIST
+Use PLIST as right padding.
+
+@item -P
+@itemx --padder=CHAR
+Use CHAR as padding character [SPC].
+
+@item -d
+@itemx --delimiter=DELIM
+Set of field delimiters [TAB,SPC].
+
+@item -D DELIM
+@itemx --output-delimiter=DELIM
+Output field delimiter [TAB].
+
+@item -o FILE
+@itemx --output=FILE
+Write output to FILE [stdout].
+
+@item --debug
+Print debugging information.
+
+@item -h
+@itemx --help
+Print an informative help message describing the options and then exit.
+
+@item -V
+@itemx --version
+Print the version number of @code{tabfmt} and then exit.
+@end table
+
+@node Examples, Reporting Bugs, Invoking tabfmt, Top
+@chapter Examples
+
+@cindex sample
+@cindex example
+
+Here is an example of running @code{tabfmt}.
+
+Below is the output of the command @samp{tabfmt -d: /etc/passwd}:
+
+@example
+root       	x	0    	0    	root                 /root              	/bin/bash 
+daemon     	x	1    	1    	daemon               /usr/sbin          	/bin/sh   
+bin        	x	2    	2    	bin                  /bin               	/bin/sh   
+sys        	x	3    	3    	sys                  /dev               	/bin/sh   
+sync       	x	4    	65534	sync                 /bin               	/bin/sync 
+games      	x	5    	60   	games                /usr/games         	/bin/sh   
+man        	x	6    	12   	man                  /var/cache/man     	/bin/sh   
+lp         	x	7    	7    	lp                   /var/spool/lpd     	/bin/sh   
+mail       	x	8    	8    	mail                 /var/mail          	/bin/sh   
+news       	x	9    	9    	news                 /var/spool/news    	/bin/sh   
+uucp       	x	10   	10   	uucp                 /var/spool/uucp    	/bin/sh   
+proxy      	x	13   	13   	proxy                /bin               	/bin/sh   
+www-data   	x	33   	33   	www-data             /var/www           	/bin/sh   
+backup     	x	34   	34   	backup               /var/backups       	/bin/sh   
+list       	x	38   	38   	Mailing List Manager /var/list          	/bin/sh   
+irc        	x	39   	39   	ircd                 /var/run/ircd      	/bin/sh   
+nobody     	x	65534	65534	nobody               /nonexistent       	/bin/sh   
+Debian-exim	x	102  	102  	                     /var/spool/exim4   	/bin/false
+sshd       	x	100  	65534	                     /var/run/sshd      	/bin/false
+admin      	x	1000 	1000 	Administrator,,,     /home/admin        	/bin/bash 
+cj         	x	1001 	1001 	Claudio Jolowicz,,,  /home/cj           	/bin/bash 
+@end example
+
+@node Reporting Bugs, Copying This Manual, Examples, Top
+@chapter Reporting Bugs
+
+@cindex Bugs, reporting
+@cindex Suggestions for Tabfmt, making
+@cindex Reporting bugs
+I welcome bug reports and suggestions for Tabfmt.  Please email them to
+@email{claudio@@jolowicz.com}.  You can get the latest version of Tabfmt
+from @uref{http://www.jolowicz.com}.
+
+@cindex Checklist for bug reports
+For bug reports, please include enough information for the maintainers
+to reproduce the problem.  Generally speaking, that means:
+
+@itemize @bullet
+@item the version number of Tabfmt.
+@item hardware and operating system names and versions.
+@item the contents of any input files necessary to reproduce the bug.
+@item a description of the problem and samples of any erroneous output.
+@item any unusual options you gave to @command{configure}.
+@item anything else that you think would be helpful.
+@end itemize
+
+When in doubt whether something is needed or not, include it.  It's
+better to include too much than to leave out something important.
+
+@cindex Patches, contributing
+Patches are most welcome; if possible, please make them with
+@samp{@w{diff -c}} (@pxref{Top,, Overview, diff, Comparing and Merging
+Files}) and include @file{ChangeLog} entries (@pxref{Change Log,,,
+emacs, The GNU Emacs Manual}).
+
+When sending patches, if possible please do not encode or split them in
+any way; it's much easier to deal with one plain text message, however
+large, than many small ones.  @uref{ftp://ftp.gnu.org/gnu/sharutils/,
+GNU shar} is a convenient way of packaging multiple and/or binary files
+for email.
+
+@node Copying This Manual, Index, Reporting Bugs, Top
+@appendix Copying This Manual
+
+@menu
+* GNU Free Documentation License::  License for copying this manual.
+@end menu
+
+@include fdl.texi
+
+@node Index,  , Copying This Manual, Top
+@unnumbered Index
+
+@printindex cp
+
+@bye
+
+@c tabfmt.texi ends here

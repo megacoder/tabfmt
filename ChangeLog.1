@@ -1,0 +1,385 @@
+2005-12-16 18:28:10 +0000  Claudio Jolowicz  <claudio@jolowicz.com>
+
+	* tabfmt.c (str_unesca): inlined
+
+	* tabfmt.c (sizevec_init): inlined
+
+	* tabfmt.c (sizevec_resize): inlined
+
+	* tabfmt.c (sizevec_alloc): inlined
+
+	* tabfmt.c (sizevec_copy): inlined
+
+	* tabfmt.c (sizevec_clone): inlined
+
+	* tabfmt.c (sizevec_free): inlined
+
+	* tabfmt.c (entry_init): inlined
+
+	* tabfmt.c (entry_alloc): inlined
+
+	* tabfmt.c (entry_free): inlined
+
+	* tabfmt.c (entry_free_all): inlined
+
+	* tabfmt.c (get_align): [cosmetics] eliminate an increment
+	
+2005-12-16 17:43:31 +0000  Claudio Jolowicz  <claudio@jolowicz.com>
+
+	* tabfmt.c (--widths): changed
+	  width_spec	::=	width_item ( `,' width_item )*
+	  width_item	::=	( num )? ( `-' | `-' num )?
+
+	* tabfmt.c (--{min,max}-widths): removed (replaced by --widths)
+
+	* tabfmt.c (get_size): subroutine to parse a single size_t
+
+	* tabfmt.c (get_sizevec): fka get_widths, now calls get_size repeatedly
+
+	* tabfmt.c (get_widths): new routine implementing new --widths syntax
+
+	* tabfmt.c (--help): updated and more precise message
+	
+2005-12-15 13:53:58 +0000  Claudio Jolowicz  <claudio@jolowicz.com>
+
+	* tabfmt.c (--help): document the escape sequences better (they
+	are supported for -fPdD, not just -d)
+	
+2005-12-15 13:45:57 +0000  Claudio Jolowicz  <claudio@jolowicz.com>
+
+	* tabfmt.c (--filler): new. default is " "
+
+	* tabfmt.c (--left-padding): new
+
+	* tabfmt.c (--right-padding): new
+
+	* tabfmt.c (--padder): new. default is " "
+
+	* tabfmt.c (--output-delimiter): default is "\t"
+
+	* tabfmt.c (--padding): default changed to 0
+
+	* tabfmt.c: support escape sequences for -d
+
+	* tabfmt.c: handle NUL characters in input
+
+	* tabfmt.c (str_unesc): translate escape sequences
+
+	* tabfmt.c (str_unesca): translate escape sequences and allocate
+
+	* tabfmt.c (sizevec_resize): [bugfix] zero the additional memory
+
+	* tabfmt.c (entry_fill): [bugfix] handle NUL characters in input
+
+	* tabfmt.c (entry_print_field): implement left and right padding,
+	filler, padder
+
+	* tabfmt.c (entry_print): implement left and right padding,
+	filler, padder
+
+	* tabfmt.c: and the obvious...
+	
+2005-12-13 03:10:54 +0000  Claudio Jolowicz  <claudio@jolowicz.com>
+
+	* tabfmt.c (process_file): handle read error after returning from
+	process_input. example: reading from a directory
+
+	* tabfmt.c (do_main): ditto
+	
+2005-12-13 02:49:35 +0000  Claudio Jolowicz  <claudio@jolowicz.com>
+
+	* tabfmt.c: use standard error messages, make them lower case and
+	more concise
+	
+2005-12-13 02:38:31 +0000  Claudio Jolowicz  <claudio@jolowicz.com>
+
+	* tabfmt.c (sizevec_clone): allocate a sizevec identical to the
+	given one
+
+	* tabfmt.c (main): avoid parsing --widths twice by cloning
+	opt_min_widths
+	
+2005-12-13 02:19:05 +0000  Claudio Jolowicz  <claudio@jolowicz.com>
+
+	* tabfmt.c (-m, --min-widths): [change] short option changed to
+	`-m'
+
+	* tabfmt.c (-M, --max-widths): [new] apply maximum field width
+
+	* tabfmt.c (-w, --widths): [new] -wL == -mL -ML)
+
+	* tabfmt.c (--debug): [new] output computed widths vector
+
+	* tabfmt.c (make_program_version): move to section usage and
+	version
+
+	* tabfmt.c (unify): handling of loops over multiple sizvecs (all
+	loopvars in loop expression)
+
+	* tabfmt.c (sizevec_min): routine for computing widths,
+	implementing --max-widths
+
+	* tabfmt.c (sizevec_print): routine for --debug
+
+	* tabfmt.c (entry_fill): do not zero-terminate fields, the sizevec
+	suffices
+
+	* tabfmt.c (entry_print_field): loop body of entry_print,
+	implements --max-widths
+
+	* tabfmt.c (produce_output): new params debug, max_widths
+
+	* tabfmt.c (do_main): new params debug, max_widths
+
+	* tabfmt.c (main): see options above
+
+	* tabfmt.c: include <limits.h> for CHAR_MAX
+
+	* tabfmt.c: section usage and version
+
+2005-12-08 02:04:44 +0000  Claudio Jolowicz  <claudio@jolowicz.com>
+
+	* tabfmt.c (--version): license changed to GPL
+	
+2005-11-23 16:15:36 +0000  Claudio Jolowicz  <claudio@jolowicz.com>
+
+	* tabfmt.c (safe_realloc): [bugfix] don't exit if NULL returned,
+	but size == 0
+	
+2005-11-23 15:43:31 +0000  Claudio Jolowicz  <claudio@jolowicz.com>
+
+	* tabfmt.c: This revision changes the data structures, hopefully
+	without affecting the program's behaviour. This should make the
+	implementation of some new features easier, such as merging the
+	first and second pass (filling the entries and computing the field
+	widths).
+
+	* tabfmt.c: move sizevec structure and functions to the top
+
+	* tabfmt.c (sizevec_alloc, sizevec_init, sizevec_resize): put
+	initialisation in sizevec_init(); define sizevec_resize() to
+	realloc the array
+
+	* tabfmt.c (entry, entry_alloc, entry_init, entry_free): instead
+	of array of pointers into the line buffer, store the line buffer
+	and a sizvec containing the offsets
+
+	* tabfmt.c (entry_realloc): removed (use sizevec_resize instead)
+
+	* tabfmt.c (entry_init): return void, not the entry
+
+	* tabfmt.c (entry_fill): use strcspn to get the offsets;
+	zero-terminate the fields as before (makes printing easier, but
+	how will we handle NUL in input?)
+
+	* tabfmt.c (entry_update_widths, entry_print): change the loop
+	logic such that all variables are incremented in the loop head,
+	but decremented at begin of loop body if out of bounds
+
+	* tabfmt.c (entry_update_widths, entry_print): simplified thanks
+	to storing offsets in entry
+
+	* tabfmt.c (entry_print): in the loop, use a pointer into the line
+	buffer (the current field's first char) since we store offsets,
+	not pointers in the struct entry
+
+2005-11-22 14:16:43 +0000  Claudio Jolowicz  <claudio@jolowicz.com>
+
+	* tabfmt.c (--version): output a version number computed from the
+	CVS revision string
+
+	* tabfmt.c (make_program_version): return the CVS revision number
+
+	* tabfmt.c (PROG_REVISION): CVS revision string (macro)
+
+	* tabfmt.c (PROG_REVISION_OFF): offset of revision number in
+	PROG_REVISION
+
+	* tabfmt.c (PROG_VERSION_SIZE): size of version string
+
+	* tabfmt.c (program_version): removed
+
+2005-11-16 20:24:00 +0000  Claudio Jolowicz  <claudio@jolowicz.com>
+
+	* tabfmt.c: Changed license to GNU General Public License.
+
+	* tabfmt.c (entry_free): [bugfix] free entry->vec[0] only if
+	entry->size > 0
+
+	* tabfmt.c (do_main): [bugfix] handle `output == "-"' (stdout as
+	output file)
+
+	* tabfmt.c (do_main): [bugfix] do not close stdout
+
+	* tabfmt.c (-a, --align=LIST): new option. align fields according to LIST
+
+	* tabfmt.c (-p, --padding=LIST): new option. use LIST as padding
+
+	* tabfmt.c (-w, --min-widths=LIST): new option. use LIST as minimum field widths
+
+	* tabfmt.c: Use EX_* from <sysexits.h> instead of own EXIT_* macros.
+	  s/EXIT_NOMEM/EX_OSERR/
+	  s/EXIT_IO/EX_IOERR/
+
+	* tabfmt.c (DEFAULT_{PADDING,DELIMITER,ALIGN}): define
+
+	* tabfmt.c (ALIGN_{LEFT,CENTER,RIGHT}): define (TODO: make this an enum)
+
+	* tabfmt.c (safe_malloc): inlined
+
+	* tabfmt.c (safe_realloc): inlined
+
+	* tabfmt.c (safe_free): inlined
+
+	* tabfmt.c (main): apply defaults after option parsing
+
+	* tabfmt.c (main): fail on unknown option, hinting at --help
+
+	* tabfmt.c (main): clean up (free padding, widths; FIXIT: also free align)
+
+	* tabfmt.c (get_align, get_widths): new functions to parse
+	--align, --padding, --min-widths options (comma-separated list)
+
+	* tabfmt.c (do_main): s/output/stream/, s/opt_//
+
+	* tabfmt.c (do_main): new parameters: min_widths, padding, align
+
+	* tabfmt.c (produce_output): new parameters: min_widths, padding,
+	align
+
+	* tabfmt.c (entry_print): new parameters: padding, align
+
+	* tabfmt.c (entry_print): output becomes first parameter
+
+	* tabfmt.c (entry_print): if string does not fit in field, do not
+	subtract exceeding chars from padding
+
+	* tabfmt.c (sizevec_copy): [new] copy source to target, repeating
+	last element of source if required
+
+	* tabfmt.c: break long lines
+
+2005-11-15 00:51:12 +0000  Claudio Jolowicz  <claudio@jolowicz.com>
+
+	* tabfmt.c (entry, entry_init, entry_realloc): `vec' is no longer
+	const [bugfix]
+
+	* tabfmt.c (entry_free): free `*vec' which was allocated by
+	`getline' (bugfix)
+
+	* tabfmt.c (main): option --equal-width: use equal width for all
+	columns
+
+	* tabfmt.c (do_main): Introduce a new parameter `opt_equal_width'
+	(for the option with similar name). Pass this parameter to
+	`produce_output'.
+
+	* tabfmt.c (struct sizevec, sizevec_alloc, sizevec_free): a vector
+	used to store the field widths
+
+	* tabfmt.c (entry_update_widths, entry_print): The `widths'
+	parameter is now a `struct sizevec'. If the number of fields
+	exceeds the size of `widths', then the last element of `widths' is
+	used for all remaining fields.
+
+	* tabfmt.c (produce_output): Use the new `struct sizevec' data
+	structure and functions. Introduce a new parameter `equal_width'
+	(for the option with similar name). Call `sizevec_alloc' with
+	size=1 if `equal_width' is true.
+
+	* tabfmt.c (usage): `coreutils'-like usage message
+
+	* tabfmt.c (process_input, process_file, produce_output, do_main):
+	s/fields/max_&/
+
+	* tabfmt.c: Use formfeeds between sections.
+
+2005-11-14 15:50:49 +0000  Claudio Jolowicz  <claudio@jolowicz.com>
+
+	* tabfmt.c (--output=FILE): write output to FILE (default:
+	stdout).
+
+	* tabfmt.c (Non-option arguments): Interpret as input
+	filenames. Interpret "-" as stdin. All input produces one table,
+	with column width computed for the entire table.
+
+	* tabfmt.c (do_main): This function does all the work. It is
+	called by main() after option parsing. The parameters are `argc'
+	and `argv' containing the remaining non-option arguments, and the
+	option values `opt_delimiter' and `opt_output'.
+
+	* tabfmt.c (process_input): Read input from a stream, appending to
+	entry list; return list tail and number of fields.
+
+	* tabfmt.c (process_file): Read input from the file `filename'.
+	wrapper for process_input.
+
+	* tabfmt.c (produce_output): Calculate column widths and print
+	entry list to a stream.
+
+	* tabfmt.c (entry_print): Parameterise wrt output stream.
+
+	* tabfmt.c: Capitalise error messages.
+
+	* tabfmt.c: Include <errno.h> for use of `errno' in `error()'.
+	
+2005-11-13 18:51:09 +0000  Claudio Jolowicz  <claudio@jolowicz.com>
+
+	* tabfmt.c (global): remove unused #define EXIT_OPTION
+
+	* tabfmt.c (main): missing break statement in command line
+	handling (`opt_delimiter')
+
+	* tabfmt.c (main): handle return value of entry_print
+	
+2005-11-13 17:41:33 +0000  Claudio Jolowicz  <claudio@jolowicz.com>
+
+	* tabfmt.c (entry_free_all): fixed null pointer reference in list
+	traversal
+	
+2005-11-13 17:18:28 +0000  Claudio Jolowicz  <claudio@jolowicz.com>
+
+	* tabfmt.c (--delimiter): override IFS environment variable
+
+	* tabfmt.c (entry_realloc): reallocate an entry's data array.
+	Fixes: realloc causes SIGABRT - `glibc detected invalid next
+	value' - failed to multiply with element size). This function is
+	called in entry_fill().
+
+2005-11-12 18:31:51 +0000  Claudio Jolowicz  <claudio@jolowicz.com>
+
+	* tabfmt.c: fix missing semicolon (`long_options')
+
+	* tabfmt.c: fix missing asterisk (`default_ifs')
+
+	* tabfmt.c: fix missing const (`ifs')
+	
+2005-11-12 18:25:16 +0000  Claudio Jolowicz  <claudio@jolowicz.com>
+
+	* tabfmt.c (_GNU_SOURCE): define for getline, basename,
+	getopt_long
+
+	* tabfmt.c (main): implement minimal command-line handling using
+	getopt_long
+
+	* tabfmt.c (--help): output `usage' using program_name, and exit
+
+	* tabfmt.c (--version): output `version' using program_name and
+	program_version built from CVS Revision, and exit
+
+	* tabfmt.c (main): warn about ignored additional arguments
+
+	* tabfmt.c (EXIT_OPTION): define (unused)
+
+	* tabfmt.c: make default IFS value a constant
+	
+2005-11-10 04:42:26 +0000  Claudio Jolowicz  <claudio@jolowicz.com>
+
+	* tabfmt.c: given tab-separated fields, output columns with
+	constant width
+
+----------------------------------------------------------------------
+	Copyright (C) 2005 Claudio Jolowicz
+	Copying and distribution of this file, with or without
+	modification, are permitted in any medium without royalty
+	provided the copyright notice and this notice are preserved.

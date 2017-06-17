@@ -1,0 +1,50 @@
+This is the version 0.1 release of Tabfmt, a software tool to format a
+table, written by Claudio Jolowicz.
+
+$Id: README,v 1.1.1.1 2009/07/16 02:17:25 reynolds Exp $
+
+Tabfmt is a command line utility to format tabular data. The program
+reads lines from one or more files or from standard input, breaks the
+lines into fields given a set of input field delimiters, and prints a
+table with constant-width columns to standard output or a specified
+file. Minimum and maximum field widths, left and right padding, as
+well as the characters used for filling, padding and delimiting the
+fields can be specified.
+
+This program is meant to integrate well with the standard UNIX
+utilities for text manipulation. It is specialised in a simple,
+everyday task which is usually too bothersome to implement in shell
+scripting. While tabfmt currently formats the table using plain text,
+extensions may include output in other formats such as HTML, LaTeX,
+Texinfo, or XML languages.
+
+The program was originally written for a GNU environment, but should
+build and run on a wide variety of platforms thanks to the GNU
+autotools and a portability library which is compiled and linked as
+needed (gnulib). It has been successfully built on GNU/Linux, FreeBSD
+and NetBSD. The program provides support for localisation using the
+GNU gettext package; a German language translation has been provided
+by the author. The package contains a preliminary test suite.
+
+If you got the Tabfmt source code via CVS, please run ./autogen.sh in
+the top-level directory to make sure that you have a complete
+development environment.
+
+See the file NEWS for a list of major changes in the current release.
+
+See the file INSTALL for building and installation instructions.
+
+The man page and the Texinfo manual are in the man/ and doc/
+subdirectories, respectively.  
+
+Please send all bug reports by electronic mail to:
+
+  tabfmt-devel@lists.sourceforge.net
+
+For more information, see the project home page:
+
+  http://tabfmt.sourceforge.net
+
+Tabfmt is free software.  See the file COPYING for copying conditions.
+
+README ends here.
